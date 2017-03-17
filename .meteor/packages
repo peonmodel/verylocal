@@ -17,14 +17,17 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 shell-server            # Server-side component of the `meteor shell` command
 
 accounts-password
+#meteor npm install --save bcrypt
 
 # semantic react
 semantic:ui
 juliancwirko:postcss
 less
 static-html
+#meteor npm install --save babel-runtime react react-dom react-router
 
 # debug stuff
 meteortoys:allthings
 #autopublish             # Publish all data to the clients (for prototyping)
 #insecure                # Allow all DB writes from clients (for prototyping)
+#meteor npm install --save-dev babel-eslint eslint babel-core eslint-plugin-meteor eslint-plugin-babel eslint-plugin-react
