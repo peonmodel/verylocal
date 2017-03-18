@@ -24,7 +24,8 @@ semantic:ui
 juliancwirko:postcss
 less
 static-html
-#meteor npm install --save babel-runtime react react-dom react-router
+#meteor npm install --save semantic-ui-react 
+#meteor npm install --save babel-runtime react react-dom react-router react-router-dom
 
 # debug stuff
 meteortoys:allthings
