@@ -45,13 +45,25 @@ class FoodMenu extends Component {
 			{ _id: 'id6', name: 'food name6', type: 'food type', description: 'food description' },
 		];  // dummy array, should be from collection
 		return (
-			<Card.Group style={{ minHeight: 500 }}>
+			<Card.Group>
 				{fooditems.map(food => {
 					return (
 						<FoodTile key={food._id} food={food} />
 					);
 				})}
 			</Card.Group>
+		);
+	}
+}
+
+class UserLogin extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div>UserLogin</div>
 		);
 	}
 }
@@ -96,7 +108,7 @@ class LoginModal extends Component {
 				</Grid>
 			),
 			login: (
-				<div>login</div>
+				<UserLogin />
 			),
 			register: (
 				<div>register</div>
@@ -137,7 +149,7 @@ class NavigationBar extends Component {
 		const { visible } = this.state;
 		const user = Meteor.user();
 		return (
-			<Container>
+			<div style={{ height: window.innerHeight, width: window.innerWidth }}>
 				<Sidebar.Pushable as={Segment}>
           <Sidebar as={Menu} animation='push' direction='top' visible={true} inverted>
             <Menu.Item name='menu' onClick={this.toggleVisibility.bind(this)}>
@@ -158,7 +170,7 @@ class NavigationBar extends Component {
 						</Menu.Menu>
           </Sidebar>
           <Sidebar.Pusher>
-            <Sidebar.Pushable as={Segment} attached>
+            <Sidebar.Pushable as={Segment} attached style={{ minHeight: 500 }}>
 							<Sidebar as={Menu} animation='push' width='thin' visible={visible} icon='labeled' vertical inverted>
 								<Menu.Item as={Link} name='home' to="/">
 									<Icon name='home' />
@@ -174,24 +186,24 @@ class NavigationBar extends Component {
 								</Menu.Item>
 							</Sidebar>
 							<Sidebar.Pusher>
-								<Container style={{ minHeight: 500 }}>
+								<Container style={{padding: 5}}>
 									{this.props.children}
 								</Container>
 							</Sidebar.Pusher>
 						</Sidebar.Pushable>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-      </Container>
+      </div>
 		);
 	}
 }
 
 class Home extends Component {
-	render() { return (<div style={{minHeight: 500}}>Home</div>); }
+	render() { return (<div>Home</div>); }
 }
 
 class About extends Component {
-	render() { return (<div style={{minHeight: 500}}>About</div>); }
+	render() { return (<div>About</div>); }
 }
 
 const renderRoutes = () => (

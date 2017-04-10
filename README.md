@@ -7,6 +7,8 @@
 - food component
 - composable food component & calculator -> for economic rice
 
+- make responsive
+
 - management portal
 - update menu & prices
 - profile page
