@@ -98,5 +98,6 @@ tracker@1.1.2
 ui@1.0.12
 underscore@1.0.10
 url@1.1.0
+verylocal:reactify@0.0.1
 webapp@1.3.14
 webapp-hashing@1.0.9

@@ -32,3 +32,6 @@ meteortoys:allthings
 #autopublish             # Publish all data to the clients (for prototyping)
 #insecure                # Allow all DB writes from clients (for prototyping)
 #meteor npm install --save-dev babel-eslint eslint babel-core eslint-plugin-meteor eslint-plugin-babel eslint-plugin-react
+
+# app-level
+verylocal:reactify

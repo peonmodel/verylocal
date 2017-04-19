@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Sidebar, Segment, Menu, Container, Icon, Card, Image, Button } from 'semantic-ui-react';
 import { GlobalMessage } from './components/globalmessage.jsx';
 import { LoginModal } from './components/login.jsx';
+import { reactify } from 'meteor/verylocal:reactify';
 
 class FoodTile extends Component {
 	render() {
@@ -72,7 +73,7 @@ class NavigationBar extends Component {
 
 	render() {
 		const { visible } = this.state;
-		const user = Meteor.user();  // FIXME: this is not reactive, esp when already signed in at page load
+		const user = this.props.user;  // FIXME: this is not reactive, esp when already signed in at page load
 		// FUTURE: Meteor.loggingIn() shows spinner icon instead of user
 		return (
 			<div style={{ height: window.innerHeight, width: window.innerWidth }}>
@@ -124,6 +125,12 @@ class NavigationBar extends Component {
 	}
 }
 
+function reactiveMapper(props, onData) {
+	onData(null, { user: Meteor.user() });
+}
+
+const SmartNavigationBar = reactify(reactiveMapper)(NavigationBar);
+
 class Home extends Component {
 	render() { return (<div>Home</div>); }
 }
@@ -135,11 +142,11 @@ class About extends Component {
 const renderRoutes = () => (
 	<Router>
 		<div>
-		<NavigationBar>
+		<SmartNavigationBar>
 			<Route exact path="/" component={Home} />
 			<Route path="/about" component={About} />
 			<Route path="/food" component={FoodMenu} />
-		</NavigationBar>
+		</SmartNavigationBar>
 		<GlobalMessage.component />
 		</div>
   </Router>
